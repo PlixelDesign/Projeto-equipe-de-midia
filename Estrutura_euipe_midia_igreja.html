@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrutura de Mídia — Igreja</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0D0F14;--surface:#161921;--surface2:#1E2230;--border:#2A2F3E;--accent:#6C8EF5;--accent2:#A78BFA;--gold:#F0C060;--green:#4ADE80;--red:#F87171;--amber:#FBBF24;--text:#E8EAF0;--muted:#8891A8;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
+.header{border-bottom:1px solid var(--border);padding:48px 40px 36px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(108,142,245,.08) 0%,transparent 70%);pointer-events:none}
+.header-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+.header h1{font-family:var(--serif);font-size:42px;font-weight:400;line-height:1.15;margin-bottom:8px}
+.header h1 em{color:var(--accent);font-style:italic}
+.header-sub{color:var(--muted);font-size:14px;font-weight:300}
+.nav{display:flex;gap:4px;padding:16px 40px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;background:var(--surface)}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{padding:8px 18px;border-radius:6px;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s}
+.nav-btn:hover{color:var(--text);background:var(--surface2)}
+.nav-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.main{max-width:960px;margin:0 auto;padding:40px 40px 80px}
+.section{display:none}.section.active{display:block}
+.section-title{font-family:var(--serif);font-size:30px;font-weight:400;margin-bottom:6px}
+.section-desc{color:var(--muted);font-size:14px;margin-bottom:32px;border-bottom:1px solid var(--border);padding-bottom:20px}
+.subtitle{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:24px 0 12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:20px}
+.card-title{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:16px}
+.principle{border-left:3px solid var(--accent);padding:12px 16px;background:rgba(108,142,245,.06);border-radius:0 8px 8px 0;font-size:14px;color:var(--muted);margin-bottom:20px;font-style:italic}
+.role-grid{display:grid;gap:12px;margin-bottom:20px}
+.role-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px 20px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start}
+.role-name{font-weight:600;font-size:14px;margin-bottom:3px}
+.role-person{color:var(--accent);font-size:13px;font-weight:500;margin-bottom:8px}
+.role-person.gap{color:var(--red)}.role-person.partial{color:var(--amber)}.role-person.potential{color:var(--accent2)}
+.role-tasks{list-style:none;display:flex;flex-direction:column;gap:4px}
+.role-tasks li{font-size:13px;color:var(--muted);padding-left:14px;position:relative}
+.role-tasks li::before{content:'–';position:absolute;left:0;color:var(--border)}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;white-space:nowrap;align-self:flex-start}
+.badge-ok{background:rgba(74,222,128,.12);color:var(--green)}
+.badge-gap{background:rgba(248,113,113,.12);color:var(--red)}
+.badge-partial{background:rgba(251,191,36,.12);color:var(--amber)}
+.badge-check{background:rgba(167,139,250,.12);color:var(--accent2)}
+.badge-away{background:rgba(136,145,168,.12);color:var(--muted)}
+.flow-section{margin-bottom:28px}
+.flow-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.flow-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.flow-label.antes{color:var(--accent)}.flow-label.durante{color:var(--gold)}.flow-label.depois{color:var(--green)}
+.flow-steps{display:flex;flex-direction:column;gap:8px}
+.flow-step{display:flex;gap:14px;align-items:flex-start}
+.flow-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px}
+.flow-num.antes{background:rgba(108,142,245,.15);color:var(--accent)}
+.flow-num.durante{background:rgba(240,192,96,.15);color:var(--gold)}
+.flow-num.depois{background:rgba(74,222,128,.15);color:var(--green)}
+.flow-text{font-size:14px;line-height:1.5}
+.flow-who{font-size:12px;color:var(--muted);font-weight:500}
+.scale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.scale-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px}
+.scale-day{font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.scale-role{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;margin-top:10px}
+.scale-person{font-size:14px;font-weight:500}
+.scale-person.gap{color:var(--red);font-style:italic}
+.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+.ov-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px}
+.ov-num{font-family:var(--serif);font-size:36px;line-height:1;margin-bottom:6px}
+.ov-label{font-size:12px;color:var(--muted)}
+.ov-num.ok{color:var(--green)}.ov-num.warn{color:var(--amber)}.ov-num.bad{color:var(--red)}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px}
+.checklist li{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:14px}
+.check-box{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:1px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.check-box.checked{background:var(--accent);border-color:var(--accent)}
+.check-box.checked::after{content:'✓';color:white;font-size:11px;font-weight:700}
+.criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.criteria-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px}
+.criteria-title{font-weight:600;font-size:13px;margin-bottom:10px}
+.criteria-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.criteria-list li{font-size:13px;color:var(--muted);padding-left:14px;position:relative}
+.criteria-list li::before{content:'·';position:absolute;left:0;color:var(--accent);font-size:16px;line-height:1.2}
+.gap-table{width:100%;border-collapse:collapse}
+.gap-table th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);font-weight:500}
+.gap-table td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--border);vertical-align:top}
+.gap-table tr:last-child td{border-bottom:none}
+.gap-table tr:hover td{background:rgba(255,255,255,.02)}
+.priority-high{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(248,113,113,.15);color:var(--red)}
+.priority-med{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(251,191,36,.15);color:var(--amber)}
+@media(max-width:640px){.header,.main,.nav{padding-left:20px;padding-right:20px}.overview-grid{grid-template-columns:repeat(2,1fr)}.scale-grid{grid-template-columns:1fr}.criteria-grid{grid-template-columns:1fr}.header h1{font-size:30px}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">Guia Interno — Daniel Pires</div>
+  <h1>Estrutura de <em>Mídia</em><br>da Igreja</h1>
+  <div class="header-sub">Setores · Funções · Fluxos · Escala · Recrutamento</div>
+</div>
+<nav class="nav">
+  <button class="nav-btn active" onclick="show('visao',this)">Visão Geral</button>
+  <button class="nav-btn" onclick="show('projecao',this)">Projeção</button>
+  <button class="nav-btn" onclick="show('foto',this)">Fotografia</button>
+  <button class="nav-btn" onclick="show('video',this)">Vídeo</button>
+  <button class="nav-btn" onclick="show('design',this)">Design</button>
+  <button class="nav-btn" onclick="show('redes',this)">Redes Sociais</button>
+  <button class="nav-btn" onclick="show('conjuntos',this)">Conjuntos</button>
+  <button class="nav-btn" onclick="show('gaps',this)">Lacunas</button>
+  <button class="nav-btn" onclick="show('escala',this)">Escala</button>
+  <button class="nav-btn" onclick="show('recrutar',this)">Recrutar</button>
+  <button class="nav-btn" onclick="show('futuro',this)">Próxima Fase</button>
+</nav>
+<div class="main">
+
+<div class="section active" id="visao">
+  <div class="section-title">Visão Geral</div>
+  <div class="section-desc">Estado atual da equipe e princípios que guiam a estrutura</div>
+  <div class="principle">Ninguém trabalha em todos os cultos sem pausa. A vida espiritual do voluntário é protegida. Mínimo de 2 pessoas por função para revezamento.</div>
+  <div class="overview-grid">
+    <div class="ov-card"><div class="ov-num ok">7</div><div class="ov-label">Pessoas disponíveis hoje</div></div>
+    <div class="ov-card"><div class="ov-num bad">~20</div><div class="ov-label">Pessoas necessárias</div></div>
+    <div class="ov-card"><div class="ov-num warn">8</div><div class="ov-label">Canais a gerenciar</div></div>
+    <div class="ov-card"><div class="ov-num bad">3</div><div class="ov-label">Gaps críticos</div></div>
+  </div>
+  <div class="subtitle">Equipe atual</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Daniel Pires</div><div class="role-person">Coordenação geral · Projeção domingo · Design culto</div><ul class="role-tasks"><li>Photoshop · Canva · Holyrics · Edição foto e vídeo</li><li>Estratégia, processos e treinamento da equipe</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Janete Felix</div><div class="role-person">Projeção — terça e quinta</div><ul class="role-tasks"><li>Holyrics — operação da projeção</li><li>Comprometida e presente nesses cultos</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Francis Pinheiro</div><div class="role-person">Projeção — eventual</div><ul class="role-tasks"><li>Líder jovem — disponível pontualmente</li><li>Não pode ser sobrecarregado</li></ul></div><span class="badge badge-partial">Eventual</span></div>
+    <div class="role-card"><div><div class="role-name">Luiz André</div><div class="role-person">Design remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos de design</li><li>Limitação criativa por falta de prática — melhor com templates</li><li>Saiu da projeção — foco total no design da semana</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">Aline Pinheiro</div><div class="role-person">Fotografia</div><ul class="role-tasks"><li>Fotógrafa em desenvolvimento</li><li>Disponibilidade parcial</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Vídeo vertical + Edição</div><ul class="role-tasks"><li>Grava e edita vertical e horizontal</li><li>A função específica será definida na conversa com ela</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">Maysa Hellen</div><div class="role-person partial">Design remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos de design</li><li>Grávida — trabalho remoto da semana, sem presença no culto</li></ul></div><span class="badge badge-partial">Limitada</span></div>
+    <div class="role-card"><div><div class="role-name">Rayssa Vitória</div><div class="role-person potential">Design remoto</div><ul class="role-tasks"><li>Canva · noção de fundamentos</li><li>Melhor com templates prontos do que criação do zero</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person gap">Vídeo vertical · Stories</div><ul class="role-tasks"><li>Grava vídeo e stories em tempo real</li><li>Questões pessoais — retorno indefinido</li></ul></div><span class="badge badge-away">Afastada</span></div>
+  </div>
+</div>
+
+<div class="section" id="projecao">
+  <div class="section-title">Setor de Projeção</div>
+  <div class="section-desc">Letras de louvor, slides de pregação e avisos — ferramenta: Holyrics</div>
+  <div class="subtitle">Mínimo 4 operadores fixos — fácil de treinar, prioridade de recrutamento</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Daniel Pires — Titular domingo</div><div class="role-person">Coordenador + operador</div><ul class="role-tasks"><li>Holyrics — domínio completo</li><li>Referência de treinamento para novos operadores</li><li>Objetivo: sair daqui quando houver substituto fixo</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Janete Felix — Titular terça e quinta</div><div class="role-person">Operadora</div><ul class="role-tasks"><li>Holyrics — operação da projeção</li><li>Preparar banco de letras antes do culto</li><li>Sincronizar com músicos e pregador</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Francis Pinheiro — Eventual</div><div class="role-person partial">Reserva geral</div><ul class="role-tasks"><li>Cobre qualquer culto em emergência</li><li>Não escalar como titular — apenas reserva</li></ul></div><span class="badge badge-partial">Eventual</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar — 3 operadores</div><div class="role-person gap">Vagas em aberto</div><ul class="role-tasks"><li>1 fixo para domingo — liberar Daniel da operação</li><li>1 reserva terça/quinta — cobrir Janete</li><li>1 reserva geral — eventos e imprevistos</li><li>Holyrics é simples — treinamento em 2 cultos acompanhados</li></ul></div><span class="badge badge-gap">3 Vagas</span></div>
+  </div>
+  <div class="subtitle">Escala de revezamento</div>
+  <div class="scale-grid">
+    <div class="scale-card"><div class="scale-day">Terça-feira</div><div class="scale-role">Titular</div><div class="scale-person">Janete Felix</div><div class="scale-role">Reserva</div><div class="scale-person gap">A recrutar</div></div>
+    <div class="scale-card"><div class="scale-day">Quinta-feira</div><div class="scale-role">Titular</div><div class="scale-person">Janete Felix</div><div class="scale-role">Reserva</div><div class="scale-person gap">A recrutar</div></div>
+    <div class="scale-card"><div class="scale-day">Domingo</div><div class="scale-role">Titular</div><div class="scale-person">Daniel Pires</div><div class="scale-role">Fixo (recrutar)</div><div class="scale-person gap">A recrutar — prioridade</div><div class="scale-role">Reserva</div><div class="scale-person">Francis Pinheiro (eventual)</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Fluxo — Projeção</div>
+    <div class="flow-section"><div class="flow-label antes">Antes</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Confirmar lista de músicas com o responsável do louvor — mínimo 1h antes</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Preparar slides das músicas e verificar letras no banco do Holyrics</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">3</div><div><div class="flow-text">Preparar slides da pregação se enviados pelo pastor</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">4</div><div><div class="flow-text">Testar equipamento e projetor antes do início</div></div></div>
+    </div></div>
+    <div class="flow-section"><div class="flow-label durante">Durante</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num durante">1</div><div><div class="flow-text">Projetar letras em sincronia com o louvor</div></div></div>
+      <div class="flow-step"><div class="flow-num durante">2</div><div><div class="flow-text">Avisos, versículos e chamadas conforme o culto avança</div></div></div>
+      <div class="flow-step"><div class="flow-num durante">3</div><div><div class="flow-text">Suporte ao pregador — slides, versículos e tópicos</div></div></div>
+    </div></div>
+    <div class="flow-section" style="margin-bottom:0"><div class="flow-label depois">Depois</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num depois">1</div><div><div class="flow-text">Atualizar banco de letras com músicas novas do culto</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">2</div><div><div class="flow-text">Reportar qualquer problema técnico para Daniel</div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="section" id="foto">
+  <div class="section-title">Fotografia</div>
+  <div class="section-desc">Registro fotográfico dos cultos, eventos e momentos da igreja</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Aline Pinheiro — Titular</div><div class="role-person partial">Fotógrafa</div><ul class="role-tasks"><li>Fotografar cultos e eventos</li><li>Entregar fotos tratadas em até 48h</li><li>Manter banco de imagens organizado</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Fotógrafo de revezamento</div><ul class="role-tasks"><li>Alternar com Aline para não sobrecarregar</li><li>Cobertura em eventos simultâneos</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Fluxo — Fotografia</div>
+    <div class="flow-section"><div class="flow-label antes">Antes</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Confirmar com Daniel quais momentos priorizar</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Celular carregado e com espaço livre</div></div></div>
+    </div></div>
+    <div class="flow-section"><div class="flow-label durante">Durante</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num durante">1</div><div><div class="flow-text">Fotografar: entrada, louvor, pregação, encerramento</div></div></div>
+      <div class="flow-step"><div class="flow-num durante">2</div><div><div class="flow-text">Capturar pessoas, expressões e momentos espontâneos</div></div></div>
+    </div></div>
+    <div class="flow-section" style="margin-bottom:0"><div class="flow-label depois">Depois</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num depois">1</div><div><div class="flow-text">Selecionar e tratar as melhores fotos em até 48h</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">2</div><div><div class="flow-text">Enviar para a pasta compartilhada da equipe</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">3</div><div><div class="flow-text">Indicar as melhores para post nas redes</div></div></div>
+    </div></div>
+  </div>
+  <div class="subtitle">Checklist por culto</div>
+  <ul class="checklist">
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Celular carregado e com espaço</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Momentos priorizados alinhados</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Fotos do louvor capturadas</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Fotos da pregação capturadas</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Fotos espontâneas capturadas</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Fotos tratadas e enviadas em até 48h</li>
+  </ul>
+</div>
+
+<div class="section" id="video">
+  <div class="section-title">Vídeo</div>
+  <div class="section-desc">Prioridade: vídeo vertical (stories e reels). Horizontal apenas em eventos especiais.</div>
+
+  <div class="subtitle">Cinegrafistas — Vertical (rotina semanal — prioridade)</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Cinegrafista vertical + Editora</div><ul class="role-tasks"><li>Grava vertical e horizontal — a função exata será definida na conversa</li><li>Edita vídeo — vertical e horizontal</li><li>Pessoa mais completa da equipe de vídeo</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person gap">Cinegrafista vertical · Stories</div><ul class="role-tasks"><li>Grava vídeo vertical e stories em tempo real</li><li>Afastada — retorno indefinido</li><li>Quando retornar: cinegrafista vertical + stories ao vivo</li></ul></div><span class="badge badge-away">Afastada</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista vertical — titular</div><ul class="role-tasks"><li>Filmar momentos do culto em formato 9:16</li><li>Capturar trechos de louvor, pregação e bastidores para Reels</li><li>Celular com boa câmera</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista vertical — revezamento</div><ul class="role-tasks"><li>Mesmo fluxo do titular</li><li>Cobre quando o titular não pode</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+
+  <div class="subtitle">Stories em tempo real</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Responsável por stories — titular</div><ul class="role-tasks"><li>Publicar stories durante cultos e eventos em tempo real</li><li>Criar stories informativos fora do culto (avisos, lembretes)</li><li>Coordenar com cinegrafista vertical para receber material</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Responsável por stories — revezamento</div><ul class="role-tasks"><li>Mesmo fluxo do titular</li><li>Cobre quando o titular não pode</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+
+  <div class="subtitle">Editores de vídeo</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Editora — a confirmar</div><ul class="role-tasks"><li>Editar Reels e cortes verticais para redes</li><li>Editar vídeos completos quando houver gravação de evento</li><li>Legendas, trilha e identidade visual</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Editor — revezamento</div><ul class="role-tasks"><li>Revezamento com Emanuelly</li><li>Edição das demandas dos conjuntos</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+
+  <div class="subtitle">Cinegrafista Horizontal — apenas eventos</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Quando disponível em eventos</div><ul class="role-tasks"><li>Capaz de gravar horizontal quando necessário</li><li>Não é função de rotina — só eventos especiais</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista horizontal — eventos</div><ul class="role-tasks"><li>Exclusivo para eventos especiais</li><li>Não entra na escala semanal</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Fluxo — Vídeo</div>
+    <div class="flow-section"><div class="flow-label antes">Antes</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Confirmar com Daniel o que filmar — destino: Reels, Stories ou arquivo de evento</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Celular carregado, acesso à conta de stories confirmado</div><div class="flow-who">Cinegrafista V</div></div></div>
+    </div></div>
+    <div class="flow-section"><div class="flow-label durante">Durante</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num durante">1</div><div><div class="flow-text">Capturar momentos do louvor, pregação e bastidores em vertical</div><div class="flow-who">Cinegrafista V</div></div></div>
+      <div class="flow-step"><div class="flow-num durante">2</div><div><div class="flow-text">Publicar stories em tempo real conforme o culto acontece</div><div class="flow-who">Stories</div></div></div>
+    </div></div>
+    <div class="flow-section" style="margin-bottom:0"><div class="flow-label depois">Depois — Edição</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num depois">1</div><div><div class="flow-text">Cinegrafista envia material bruto para a editora em até 24h</div><div class="flow-who">Cinegrafista V</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">2</div><div><div class="flow-text">Editar cortes verticais para Reels com legendas e identidade visual</div><div class="flow-who">Emanuelly</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">3</div><div><div class="flow-text">Entregar para o gestor de redes publicar no calendário</div><div class="flow-who">Emanuelly</div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="section" id="design">
+  <div class="section-title">Design</div>
+  <div class="section-desc">Dividido em dois perfis distintos: design de culto (presencial, rápido) e design da semana (remoto, criativo)</div>
+
+  <div class="subtitle">Design de Culto — presencial, demanda pontual</div>
+  <div class="principle">Avisos de última hora, ajuste de slide, arte rápida no Canva. Não exige Photoshop — exige calma e velocidade.</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Daniel Pires — por enquanto</div><div class="role-person">Já faz hoje</div><ul class="role-tasks"><li>Photoshop · Canva · fundamentos de design</li><li>Objetivo: passar essa função quando aparecer a pessoa certa</li><li>Perfil ideal para substituir: calmo, Canva básico, presente nos cultos</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar — futuro</div><div class="role-person gap">Quando aparecer a pessoa certa</div><ul class="role-tasks"><li>Não precisa de Photoshop — Canva básico já resolve</li><li>Precisa estar presente nos cultos</li><li>Baixa urgência — Daniel cobre por ora</li></ul></div><span class="badge badge-gap">Sem urgência</span></div>
+  </div>
+
+  <div class="subtitle" style="margin-top:24px">Design da Semana — remoto, criativo</div>
+  <div class="principle">Flyers, posts, cards e conteúdo dos conjuntos. Trabalho remoto, com prazo. Luiz André e Rayssa trabalham melhor com template pronto — não com briefing aberto.</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Maysa Hellen</div><div class="role-person partial">Designer titular — remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos sólidos</li><li>Flyers, posts e artes mais complexas</li><li>Trabalho remoto — sem presença no culto</li></ul></div><span class="badge badge-partial">Limitada</span></div>
+    <div class="role-card"><div><div class="role-name">Luiz André</div><div class="role-person partial">Designer — remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos — pouca prática criativa</li><li>Melhor com templates prontos e demandas definidas</li><li>Não sobrecarregar com criação do zero</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">Rayssa Vitória</div><div class="role-person potential">Designer — remoto</div><ul class="role-tasks"><li>Canva · noção de fundamentos</li><li>Melhor com templates prontos — limitação criativa</li><li>Ideal para demandas simples e repetitivas dos conjuntos</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Designer — demandas dos conjuntos</div><ul class="role-tasks"><li>Para quando a demanda crescer com os novos responsáveis de conjunto</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+    <div class="card-title">Fluxo — Design da Semana</div>
+    <div class="flow-section"><div class="flow-label antes">Demanda</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Daniel ou responsável do conjunto envia briefing: o que é, data, texto, referência visual</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Para Luiz e Rayssa: sempre enviar template de base — não pedir criação do zero</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">3</div><div><div class="flow-text">Designer confirma prazo e aceita a demanda</div></div></div>
+    </div></div>
+    <div class="flow-section"><div class="flow-label durante">Criação</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num durante">1</div><div><div class="flow-text">Criar arte na identidade visual da igreja ou conjunto</div></div></div>
+      <div class="flow-step"><div class="flow-num durante">2</div><div><div class="flow-text">Enviar para aprovação de Daniel ou do responsável</div></div></div>
+    </div></div>
+    <div class="flow-section" style="margin-bottom:0"><div class="flow-label depois">Entrega</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num depois">1</div><div><div class="flow-text">Ajustar conforme feedback</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">2</div><div><div class="flow-text">Entregar arquivo final para o gestor de redes publicar</div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="section" id="redes">
+  <div class="section-title">Redes Sociais</div>
+  <div class="section-desc">Gestão, publicação e monitoramento dos canais — Instagram, Facebook e YouTube</div>
+  <div class="principle">Lacuna crítica: ninguém faz isso hoje de forma dedicada. Está tudo no colo de Daniel.</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Gestor de Redes — 2 pessoas a recrutar</div><div class="role-person gap">Vagas em aberto</div><ul class="role-tasks"><li>Planejar calendário mensal de publicações</li><li>Agendar posts e responder comentários e DMs</li><li>Monitorar métricas básicas</li><li>Alinhar com Daniel o que publicar e quando</li></ul></div><span class="badge badge-gap">Vaga Crítica</span></div>
+    <div class="role-card"><div><div class="role-name">Operador de Live — 2 pessoas a recrutar</div><div class="role-person gap">Vagas em aberto</div><ul class="role-tasks"><li>Operar transmissão ao vivo no YouTube e Facebook</li><li>Controle de câmeras e áudio da transmissão</li><li>Interação no chat durante o culto</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Fluxo semanal — Redes</div>
+    <div class="flow-section"><div class="flow-label antes">Segunda / Terça</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Receber fotos e vídeos editados da semana anterior</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Planejar e agendar posts da semana</div></div></div>
+    </div></div>
+    <div class="flow-section"><div class="flow-label durante">Dias de culto</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num durante">1</div><div><div class="flow-text">Publicar stories em tempo real se definido no calendário</div></div></div>
+      <div class="flow-step"><div class="flow-num durante">2</div><div><div class="flow-text">Monitorar live e interagir no chat</div><div class="flow-who">Operador de live</div></div></div>
+    </div></div>
+    <div class="flow-section" style="margin-bottom:0"><div class="flow-label depois">Final de semana</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num depois">1</div><div><div class="flow-text">Verificar métricas e reportar para Daniel</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">2</div><div><div class="flow-text">Responder comentários e DMs pendentes</div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="section" id="conjuntos">
+  <div class="section-title">Conjuntos</div>
+  <div class="section-desc">Cada conjunto tem um responsável próprio. Eles coletam e entregam — a equipe central produz.</div>
+  <div class="principle">Daniel não gerencia os conjuntos diretamente. Ele orienta os responsáveis. Cada responsável é o elo entre o conjunto e a equipe central.</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Responsável — Irmãs</div><div class="role-person gap">A recrutar</div><ul class="role-tasks"><li>Coletar fotos e vídeos dos ensaios e apresentações</li><li>Enviar material para a equipe central com prazo</li><li>Pautar demandas de design</li><li>Ponto de contato entre o conjunto e Daniel</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Responsável — Jovens</div><div class="role-person gap">A recrutar</div><ul class="role-tasks"><li>Mesmo fluxo do Conjunto de Irmãs</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Responsável — Crianças</div><div class="role-person gap">A recrutar</div><ul class="role-tasks"><li>Mesmo fluxo — atenção ao cuidado com imagem de menores</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Responsável — Adolescentes</div><div class="role-person gap">A recrutar</div><ul class="role-tasks"><li>Mesmo fluxo do Conjunto de Jovens</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Responsável — Orquestra e Coral</div><div class="role-person potential">Se Daniel assumir o canal</div><ul class="role-tasks"><li>Coletar fotos e vídeos dos ensaios e apresentações</li><li>Pautar demandas de design para o canal</li><li>A definir conforme decisão</li></ul></div><span class="badge badge-check">Potencial</span></div>
+  </div>
+  <div class="card" style="margin-top:8px">
+    <div class="card-title">Fluxo padrão — Responsável de Conjunto</div>
+    <div class="flow-section"><div class="flow-label antes">Antes</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Confirmar com o líder do conjunto se haverá registro</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Verificar se há demanda de arte ou post</div></div></div>
+    </div></div>
+    <div class="flow-section"><div class="flow-label durante">Durante</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num durante">1</div><div><div class="flow-text">Fotografar ou filmar os momentos principais</div></div></div>
+    </div></div>
+    <div class="flow-section" style="margin-bottom:0"><div class="flow-label depois">Após</div><div class="flow-steps">
+      <div class="flow-step"><div class="flow-num depois">1</div><div><div class="flow-text">Enviar material para a pasta da equipe central em até 24h</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">2</div><div><div class="flow-text">Enviar briefing para o designer se precisar de arte</div></div></div>
+      <div class="flow-step"><div class="flow-num depois">3</div><div><div class="flow-text">Aprovar a arte antes de publicar</div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="section" id="gaps">
+  <div class="section-title">Lacunas da Equipe</div>
+  <div class="section-desc">O que falta hoje para a estrutura funcionar com leveza</div>
+  <table class="gap-table">
+    <thead><tr><th>Função</th><th>Situação</th><th>Prioridade</th><th>Motivo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gestor de Redes</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Ninguém faz isso hoje. Tudo com Daniel.</td></tr>
+      <tr><td><strong>Operador de Projeção</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 2 de 5</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Fácil de treinar. 3 vagas — prioridade imediata.</td></tr>
+      <tr><td><strong>Cinegrafista Vertical</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Prioridade da equipe de vídeo na rotina semanal.</td></tr>
+      <tr><td><strong>Responsável por Stories</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Ninguém publica stories ao vivo hoje.</td></tr>
+      <tr><td><strong>Responsáveis por Conjunto</strong></td><td><span style="color:var(--red);font-weight:700">Falta 5 de 5</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Daniel vira ponto único de todos os conjuntos.</td></tr>
+      <tr><td><strong>Editor de Vídeo</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 1 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Confirmar Emanuelly. Falta par de revezamento.</td></tr>
+      <tr><td><strong>Fotógrafo</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 1 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Aline Pinheiro precisa de parceiro para revezar.</td></tr>
+      <tr><td><strong>Operador de Live</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Transmissão sem responsável dedicado.</td></tr>
+      <tr><td><strong>Designer — semana</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 2 de 3</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Confirmar Rayssa. Maysa limitada pela gravidez.</td></tr>
+      <tr><td><strong>Designer — culto</strong></td><td><span style="color:var(--amber);font-weight:700">Daniel cobre</span></td><td><span class="priority-med">Sem urgência</span></td><td style="color:var(--muted)">Daniel já faz. Recrutar quando aparecer a pessoa certa.</td></tr>
+      <tr><td><strong>Cinegrafista Horizontal</strong></td><td><span style="color:var(--amber);font-weight:700">Eventos apenas</span></td><td><span class="priority-med">Baixa</span></td><td style="color:var(--muted)">Emanuelly cobre quando disponível. Não é rotina.</td></tr>
+    </tbody>
+  </table>
+  <div class="card" style="margin-top:24px;border-color:rgba(108,142,245,.3)">
+    <div class="card-title" style="font-size:18px">Total a recrutar: ~20 pessoas</div>
+    <p style="color:var(--muted);font-size:14px;margin-top:8px">Trabalho de médio prazo. A reunião com as lideranças é o primeiro passo para preencher isso com intenção.</p>
+  </div>
+</div>
+
+<div class="section" id="recrutar">
+  <div class="section-title">Recrutamento</div>
+  <div class="section-desc">Como identificar, abordar e integrar novos voluntários</div>
+  <div class="subtitle">O que procurar em qualquer função</div>
+  <div class="criteria-grid" style="margin-bottom:28px">
+    <div class="criteria-card"><div class="criteria-title">✓ Perfil desejado</div><ul class="criteria-list"><li>Quer servir, não aparecer</li><li>Disponibilidade real e previsível</li><li>Aceita aprender e receber orientação</li><li>Responsável com prazos</li><li>Membro ativo há algum tempo</li></ul></div>
+    <div class="criteria-card"><div class="criteria-title" style="color:var(--red)">✗ Sinais de atenção</div><ul class="criteria-list"><li>Quer visibilidade, não serviço</li><li>Disponibilidade imprevisível</li><li>Dificuldade de receber feedback</li><li>Entrada por pressão de terceiros</li><li>Sem base espiritual ativa</li></ul></div>
+  </div>
+  <div class="subtitle">Roteiro — reunião com lideranças</div>
+  <div class="card" style="margin-bottom:24px">
+    <ul class="role-tasks" style="display:flex;flex-direction:column;gap:12px">
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">1.</span><span style="font-size:14px">Mostrar a estrutura — setores, funções, quantas pessoas cada um precisa</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">2.</span><span style="font-size:14px">Mostrar as lacunas com clareza — números, não "precisamos de ajuda"</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">3.</span><span style="font-size:14px">Perguntar: "Quem vocês conhecem com esse perfil e quer servir?"</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">4.</span><span style="font-size:14px">Pedir indicações concretas — nomes, não promessas</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">5.</span><span style="font-size:14px">Definir quem fará a abordagem individual com cada indicado</span></li>
+    </ul>
+  </div>
+  <div class="subtitle">Checklist — integração do novo voluntário</div>
+  <ul class="checklist">
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Conversa individual: disponibilidade e motivação</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Apresentar a visão da equipe de mídia</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Definir função e escala de revezamento</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Apresentar ao restante da equipe</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Acompanhar nos dois primeiros cultos</li>
+    <li><div class="check-box" onclick="this.classList.toggle('checked')"></div>Check-in após o primeiro mês</li>
+  </ul>
+</div>
+
+
+<!-- ESCALA -->
+<div class="section" id="escala">
+  <div class="section-title">Escala de Revezamento</div>
+  <div class="section-desc">Estrutura fixa por função — preencha os nomes conforme a equipe for se formando</div>
+
+  <div class="principle">Regra base: ninguém escala no mesmo culto duas semanas seguidas na mesma função sem pausa. Mínimo de 2 por função para que o revezamento funcione.</div>
+
+  <div class="subtitle">Como usar esta escala</div>
+  <div class="card" style="margin-bottom:24px">
+    <ul class="role-tasks" style="display:flex;flex-direction:column;gap:10px">
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">1.</span><span style="font-size:14px">Preencha os nomes nos slots de cada semana conforme a equipe crescer</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">2.</span><span style="font-size:14px">Alterne Titular A e Titular B a cada semana para garantir o descanso</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">3.</span><span style="font-size:14px">Reserva entra apenas quando o titular não puder — confirme sempre na semana anterior</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">4.</span><span style="font-size:14px">Eventos especiais têm escala separada — não mexa na escala fixa por causa deles</span></li>
+    </ul>
+  </div>
+
+  <div class="subtitle">Projeção</div>
+  <div style="overflow-x:auto">
+  <table class="gap-table">
+    <thead><tr><th>Culto</th><th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Terça</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Janete Felix</td><td>_____________</td><td>Janete Felix</td><td>_____________</td></tr>
+      <tr><td><strong>Terça</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Quinta</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Janete Felix</td><td>_____________</td><td>Janete Felix</td><td>_____________</td></tr>
+      <tr><td><strong>Quinta</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Daniel Pires</td><td>_____________</td><td>Daniel Pires</td><td>_____________</td></tr>
+      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td>Francis Pinheiro</td><td>Francis Pinheiro</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subtitle" style="margin-top:28px">Fotografia</div>
+  <div style="overflow-x:auto">
+  <table class="gap-table">
+    <thead><tr><th>Culto</th><th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular A</span></td><td>Aline Pinheiro</td><td>_____________</td><td>Aline Pinheiro</td><td>_____________</td></tr>
+      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular B</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Terça / Quinta</strong><br><span style="color:var(--muted);font-size:12px">Conforme demanda</span></td><td colspan="4" style="color:var(--muted);font-style:italic">Escalar apenas quando houver evento especial ou demanda específica</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subtitle" style="margin-top:28px">Vídeo — Vertical, Stories e Edição (rotina semanal)</div>
+  <div style="overflow-x:auto">
+  <table class="gap-table">
+    <thead><tr><th>Função</th><th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cinegrafista Vertical</strong><br><span style="color:var(--muted);font-size:12px">Todos os cultos</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Stories ao vivo</strong><br><span style="color:var(--muted);font-size:12px">Todos os cultos</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Edição — Reels</strong><br><span style="color:var(--muted);font-size:12px">Pós-culto, remoto</span></td><td>Emanuelly</td><td>_____________</td><td>Emanuelly</td><td>_____________</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="color:var(--muted);font-size:12px;margin-top:8px;font-style:italic">* Vídeo horizontal (eventos): escala separada montada quando necessário — não entra na rotina semanal</p>
+
+  <div class="subtitle" style="margin-top:28px">Design — Semana (remoto)</div>
+  <div style="overflow-x:auto">
+  <table class="gap-table">
+    <thead><tr><th>Semana</th><th>Titular</th><th>Apoio</th><th>Obs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Semana 1</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Luiz: sempre com template — não briefing aberto</td></tr>
+      <tr><td><strong>Semana 2</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Confirmar Rayssa antes de escalar</td></tr>
+      <tr><td><strong>Semana 3</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
+      <tr><td><strong>Semana 4</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
+    </tbody>
+  </table>
+  </div>
+    <tbody>
+      <tr><td><strong>Semana 1</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Maysa titular quando disponível</td></tr>
+      <tr><td><strong>Semana 2</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Confirmar Rayssa antes de escalar</td></tr>
+      <tr><td><strong>Semana 3</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
+      <tr><td><strong>Semana 4</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subtitle" style="margin-top:28px">Gestão de Redes e Live</div>
+  <div class="card" style="border-color:rgba(248,113,113,.25)">
+    <p style="color:var(--muted);font-size:14px">Estas funções ainda não têm ninguém escalado. A escala será montada após o recrutamento. Prioridade alta para preencher antes de definir qualquer data.</p>
+  </div>
+</div>
+
+<!-- PRÓXIMA FASE -->
+<div class="section" id="futuro">
+  <div class="section-title">Próxima Fase</div>
+  <div class="section-desc">Funções e frentes que fazem sentido no futuro — quando a equipe atual estiver estável e funcionando</div>
+
+  <div class="principle">Nada aqui entra antes da estrutura base estar consolidada. Crescer antes de estabilizar quebra o que já existe.</div>
+
+  <div class="subtitle">Funções a considerar no futuro</div>
+  <div class="role-grid">
+    <div class="role-card"><div><div class="role-name">Legendas / Acessibilidade</div><div class="role-person potential">Futura</div><ul class="role-tasks"><li>Adicionar legendas nos vídeos publicados</li><li>Eventualmente: intérprete de Libras na transmissão ao vivo</li><li>Torna o conteúdo acessível para pessoas com deficiência auditiva</li></ul></div><span class="badge badge-check">Futuro</span></div>
+    <div class="role-card"><div><div class="role-name">Podcast de Áudio</div><div class="role-person potential">Futura</div><ul class="role-tasks"><li>Publicar áudio das pregações em plataformas de podcast</li><li>Alcançar membros que não conseguem acompanhar vídeo</li><li>Requer apenas edição de áudio — menor esforço que vídeo completo</li></ul></div><span class="badge badge-check">Futuro</span></div>
+    <div class="role-card"><div><div class="role-name">Produção de Conteúdo Extra</div><div class="role-person potential">Futura</div><ul class="role-tasks"><li>Entrevistas com membros, líderes e pastores</li><li>Devocionais gravados fora do culto</li><li>Séries temáticas para redes sociais</li><li>Bastidores e conteúdo de vida da igreja</li></ul></div><span class="badge badge-check">Futuro</span></div>
+    <div class="role-card"><div><div class="role-name">Identidade Visual Avançada</div><div class="role-person potential">Futura</div><ul class="role-tasks"><li>Manual de identidade visual da igreja e dos conjuntos</li><li>Templates padronizados para todos os canais</li><li>Consistência visual em todos os materiais impressos e digitais</li></ul></div><span class="badge badge-check">Futuro</span></div>
+    <div class="role-card"><div><div class="role-name">Cobertura de Eventos Regionais</div><div class="role-person potential">Futura</div><ul class="role-tasks"><li>Equipe preparada para cobrir eventos fora da sede</li><li>Equipamento móvel e fluxo de publicação em tempo real</li></ul></div><span class="badge badge-check">Futuro</span></div>
+    <div class="role-card"><div><div class="role-name">Treinamento Interno</div><div class="role-person potential">Futura</div><ul class="role-tasks"><li>Capacitar novos voluntários com aulas internas</li><li>Reduzir dependência de habilidades externas</li><li>Criar banco de voluntários treinados e prontos</li></ul></div><span class="badge badge-check">Futuro</span></div>
+  </div>
+
+  <div class="subtitle" style="margin-top:8px">Quando considerar avançar para a próxima fase</div>
+  <div class="card">
+    <ul class="role-tasks" style="display:flex;flex-direction:column;gap:12px">
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span><span style="font-size:14px">Todas as funções da estrutura base com pelo menos 2 pessoas ativas</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span><span style="font-size:14px">Escala rodando por pelo menos 2 meses sem colapso</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span><span style="font-size:14px">Gestão de redes funcionando com responsável dedicado</span></li>
+      <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span><span style="font-size:14px">Daniel não sendo mais ponto único de nenhuma função operacional</span></li>
+    </ul>
+  </div>
+</div>
+
+</div>
+<script>
+function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active')}
+</script>
+</body>
+</html>
