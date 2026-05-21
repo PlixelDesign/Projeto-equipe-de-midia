@@ -94,6 +94,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
 </div>
 <nav class="nav">
   <button class="nav-btn active" onclick="show('visao',this)">Visão Geral</button>
+  <button class="nav-btn" onclick="show('painel',this)">Painel de Pessoas</button>
   <button class="nav-btn" onclick="show('projecao',this)">Projeção</button>
   <button class="nav-btn" onclick="show('foto',this)">Fotografia</button>
   <button class="nav-btn" onclick="show('video',this)">Vídeo</button>
@@ -112,22 +113,53 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
   <div class="section-desc">Estado atual da equipe e princípios que guiam a estrutura</div>
   <div class="principle">Ninguém trabalha em todos os cultos sem pausa. A vida espiritual do voluntário é protegida. Mínimo de 2 pessoas por função para revezamento.</div>
   <div class="overview-grid">
-    <div class="ov-card"><div class="ov-num ok">7</div><div class="ov-label">Pessoas disponíveis hoje</div></div>
+    <div class="ov-card"><div class="ov-num ok">11</div><div class="ov-label">Pessoas disponíveis hoje</div></div>
     <div class="ov-card"><div class="ov-num bad">~20</div><div class="ov-label">Pessoas necessárias</div></div>
     <div class="ov-card"><div class="ov-num warn">8</div><div class="ov-label">Canais a gerenciar</div></div>
-    <div class="ov-card"><div class="ov-num bad">3</div><div class="ov-label">Gaps críticos</div></div>
+    <div class="ov-card"><div class="ov-num bad">4</div><div class="ov-label">Gaps críticos</div></div>
   </div>
   <div class="subtitle">Equipe atual</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">Daniel Pires</div><div class="role-person">Coordenação geral · Projeção domingo · Design culto</div><ul class="role-tasks"><li>Photoshop · Canva · Holyrics · Edição foto e vídeo</li><li>Estratégia, processos e treinamento da equipe</li></ul></div><span class="badge badge-ok">Ativo</span></div>
-    <div class="role-card"><div><div class="role-name">Janete Felix</div><div class="role-person">Projeção — terça e quinta</div><ul class="role-tasks"><li>Holyrics — operação da projeção</li><li>Comprometida e presente nesses cultos</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Daniel Pires</div><div class="role-person">Coordenação geral · Design culto · treinamento</div><ul class="role-tasks"><li>Photoshop · Canva · Holyrics · Edição foto e vídeo</li><li>Estratégia, processos e treinamento da equipe</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Janete Felix</div><div class="role-person">Projeção titular — terça e quinta · Design em desenvolvimento</div><ul class="role-tasks"><li>Holyrics · interesse em design iniciante</li><li>Arte de teste solicitada — aguardando resultado</li></ul></div><span class="badge badge-ok">Ativo</span></div>
     <div class="role-card"><div><div class="role-name">Francis Pinheiro</div><div class="role-person">Projeção — eventual</div><ul class="role-tasks"><li>Líder jovem — disponível pontualmente</li><li>Não pode ser sobrecarregado</li></ul></div><span class="badge badge-partial">Eventual</span></div>
-    <div class="role-card"><div><div class="role-name">Luiz André</div><div class="role-person">Design remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos de design</li><li>Limitação criativa por falta de prática — melhor com templates</li><li>Saiu da projeção — foco total no design da semana</li></ul></div><span class="badge badge-partial">Parcial</span></div>
-    <div class="role-card"><div><div class="role-name">Aline Pinheiro</div><div class="role-person">Fotografia</div><ul class="role-tasks"><li>Fotógrafa em desenvolvimento</li><li>Disponibilidade parcial</li></ul></div><span class="badge badge-partial">Parcial</span></div>
-    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Vídeo vertical + Edição</div><ul class="role-tasks"><li>Grava e edita vertical e horizontal</li><li>A função específica foi definida na conversa com ela</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Luiz André</div><div class="role-person partial">Projeção domingo · Design remoto reserva</div><ul class="role-tasks"><li>Photoshop · fundamentos de design · Holyrics</li><li>Titular da projeção no domingo</li><li>No design atua como reserva, melhor com templates prontos</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">Aline Pinheiro</div><div class="role-person">Projeção</div><ul class="role-tasks"><li>Holyrics em aprendizado · fotografia básica</li><li>Saiu da fotografia por preferência própria — abre lacuna de fotógrafo</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person">Vídeo vertical e horizontal · Edição</div><ul class="role-tasks"><li>Grava e edita os dois formatos</li><li>Pessoa mais versátil da equipe de vídeo</li></ul></div><span class="badge badge-ok">Ativo</span></div>
     <div class="role-card"><div><div class="role-name">Maysa Hellen</div><div class="role-person partial">Design remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos de design</li><li>Grávida — trabalho remoto da semana, sem presença no culto</li></ul></div><span class="badge badge-partial">Limitada</span></div>
-    <div class="role-card"><div><div class="role-name">Rayssa Vitória</div><div class="role-person potential">Design remoto</div><ul class="role-tasks"><li>Canva · noção de fundamentos</li><li>Melhor com templates prontos do que criação do zero</li></ul></div><span class="badge badge-check">Confirmar</span></div>
-    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person gap">Vídeo vertical · Stories</div><ul class="role-tasks"><li>Grava vídeo e stories em tempo real</li><li>Participa da orquestra</li></ul></div><span class="badge badge-partial">Limitada</span></div>
+    <div class="role-card"><div><div class="role-name">Rayssa Vitória</div><div class="role-person partial">Indisponível temporariamente</div><ul class="role-tasks"><li>Muito atarefada, sem previsão de retorno</li><li>Não contar com ela no planejamento atual</li></ul></div><span class="badge badge-away">Indisponível</span></div>
+    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person">Gravação de vídeo vertical</div><ul class="role-tasks"><li>Grava vertical com versatilidade e stories em tempo real</li><li>Não edita — só captura</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Rafael</div><div class="role-person">Edição de vídeo</div><ul class="role-tasks"><li>CapCut Pro</li><li>Só edita — não grava; nível a avaliar</li></ul></div><span class="badge badge-ok">Ativo — adolescente</span></div>
+    <div class="role-card"><div><div class="role-name">Maria Eduarda</div><div class="role-person">Gravação de vídeo + Edição</div><ul class="role-tasks"><li>CapCut Pro · gravação e edição</li><li>Foco em adolescentes e eventos das crianças; nível a avaliar</li></ul></div><span class="badge badge-ok">Ativo — adolescente</span></div>
+    <div class="role-card"><div><div class="role-name">Philipe</div><div class="role-person potential">A definir — conversa em andamento</div><ul class="role-tasks"><li>Photoshop · edição de vídeo · Holyrics</li><li>Não escalar até confirmar interesse e função</li></ul></div><span class="badge badge-check">Potencial</span></div>
+    <div class="role-card"><div><div class="role-name">Joice</div><div class="role-person potential">A definir</div><ul class="role-tasks"><li>Design básico · provável gravação de vídeo</li><li>Ainda não conversou com Daniel</li></ul></div><span class="badge badge-check">Potencial</span></div>
+    <div class="role-card"><div><div class="role-name">Bracha</div><div class="role-person potential">A definir</div><ul class="role-tasks"><li>Habilidades desconhecidas</li><li>Conversa ainda não realizada — abordagem requer cuidado especial</li></ul></div><span class="badge badge-check">Potencial</span></div>
+  </div>
+</div>
+
+<div class="section" id="painel">
+  <div class="section-title">Painel de Pessoas</div>
+  <div class="section-desc">Visão completa de quem está na equipe, o que faz, habilidades e restrições operacionais</div>
+  <div style="overflow-x:auto">
+  <table class="gap-table">
+    <thead><tr><th>Nome</th><th>Status</th><th>Função atual</th><th>Habilidades</th><th>Restrições / observações operacionais</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Daniel Pires</strong></td><td><span class="badge badge-ok">Ativo</span></td><td>Coordenação geral · Design culto · treinamento</td><td><ul class="role-tasks"><li>Photoshop, Canva, Holyrics</li><li>Edição de foto e vídeo</li></ul></td><td style="color:var(--muted)">Ponto de coordenação e treinamento; objetivo é deixar funções operacionais conforme houver substitutos.</td></tr>
+      <tr><td><strong>Janete Felix</strong></td><td><span class="badge badge-ok">Ativo</span></td><td>Projeção titular — terça e quinta · design em desenvolvimento</td><td><ul class="role-tasks"><li>Holyrics</li><li>Interesse em design iniciante</li></ul></td><td style="color:var(--muted)">Arte de teste solicitada — aguardando resultado.</td></tr>
+      <tr><td><strong>Aline Pinheiro</strong></td><td><span class="badge badge-ok">Ativo</span></td><td>Projeção</td><td><ul class="role-tasks"><li>Holyrics em aprendizado</li><li>Fotografia básica</li></ul></td><td style="color:var(--muted)">Saiu da fotografia por preferência própria. Isso abre lacuna de fotógrafo.</td></tr>
+      <tr><td><strong>Luiz André</strong></td><td><span class="badge badge-partial">Parcial</span></td><td>Projeção titular domingo · design remoto reserva</td><td><ul class="role-tasks"><li>Photoshop</li><li>Fundamentos de design</li><li>Holyrics</li></ul></td><td style="color:var(--muted)">No design atua como reserva; melhor com templates prontos.</td></tr>
+      <tr><td><strong>Francis Pinheiro</strong></td><td><span class="badge badge-partial">Eventual</span></td><td>Projeção eventual</td><td><ul class="role-tasks"><li>Holyrics</li><li>Apoio pontual</li></ul></td><td style="color:var(--muted)">Líder jovem; não pode ser sobrecarregado nem escalado como titular fixo.</td></tr>
+      <tr><td><strong>Emanuelly Oliveira</strong></td><td><span class="badge badge-ok">Ativo</span></td><td>Gravação vertical e horizontal · edição de vídeo</td><td><ul class="role-tasks"><li>Gravação vertical e horizontal</li><li>Edição de vídeo</li></ul></td><td style="color:var(--muted)">Pessoa mais versátil da equipe de vídeo; grava e edita os dois formatos.</td></tr>
+      <tr><td><strong>Maysa Hellen</strong></td><td><span class="badge badge-partial">Limitada</span></td><td>Design remoto</td><td><ul class="role-tasks"><li>Photoshop</li><li>Fundamentos de design</li></ul></td><td style="color:var(--muted)">Grávida; trabalho remoto da semana, sem presença no culto.</td></tr>
+      <tr><td><strong>Samara Alves</strong></td><td><span class="badge badge-ok">Ativo</span></td><td>Gravação de vídeo vertical</td><td><ul class="role-tasks"><li>Gravação vertical</li><li>Stories em tempo real</li></ul></td><td style="color:var(--muted)">Grava vertical com versatilidade. Não edita — só captura.</td></tr>
+      <tr><td><strong>Rafael</strong></td><td><span class="badge badge-ok">Ativo — adolescente</span></td><td>Edição de vídeo</td><td><ul class="role-tasks"><li>CapCut Pro</li><li>Edição</li></ul></td><td style="color:var(--muted)">Só edita — não grava. Disponível para adolescentes e eventos das crianças; nível a avaliar.</td></tr>
+      <tr><td><strong>Maria Eduarda</strong></td><td><span class="badge badge-ok">Ativo — adolescente</span></td><td>Gravação de vídeo + edição</td><td><ul class="role-tasks"><li>CapCut Pro</li><li>Gravação e edição</li></ul></td><td style="color:var(--muted)">Foco nos adolescentes e eventos das crianças. Nível a avaliar.</td></tr>
+      <tr><td><strong>Philipe</strong></td><td><span class="badge badge-check">Potencial</span></td><td>A definir — conversa em andamento</td><td><ul class="role-tasks"><li>Photoshop</li><li>Edição de vídeo</li><li>Holyrics</li></ul></td><td style="color:var(--muted)">Filho do pastor. Perfil muito versátil; não escalar até confirmar interesse e função.</td></tr>
+      <tr><td><strong>Joice</strong></td><td><span class="badge badge-check">Potencial</span></td><td>A definir</td><td><ul class="role-tasks"><li>Design básico</li><li>Provável gravação de vídeo</li></ul></td><td style="color:var(--muted)">Membra do conjunto das irmãs. Ainda não conversou com Daniel.</td></tr>
+      <tr><td><strong>Bracha</strong></td><td><span class="badge badge-check">Potencial</span></td><td>A definir</td><td><ul class="role-tasks"><li>Desconhecidas</li></ul></td><td style="color:var(--muted)">Conversa ainda não realizada — abordagem requer cuidado especial. Não escalar nem definir função ainda.</td></tr>
+      <tr><td><strong>Rayssa Vitória</strong></td><td><span class="badge badge-away">Indisponível</span></td><td>Fora do planejamento atual</td><td><ul class="role-tasks"><li>Canva</li><li>Noção de fundamentos</li></ul></td><td style="color:var(--muted)">Indisponível temporariamente — muito atarefada, sem previsão. Não contar no planejamento atual.</td></tr>
+    </tbody>
+  </table>
   </div>
 </div>
 
@@ -136,16 +168,18 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
   <div class="section-desc">Letras de louvor, slides de pregação e avisos — ferramenta: Holyrics</div>
   <div class="subtitle">Mínimo 4 operadores fixos — fácil de treinar, prioridade de recrutamento</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">Daniel Pires — Titular domingo</div><div class="role-person">Coordenador + operador</div><ul class="role-tasks"><li>Holyrics — domínio completo</li><li>Referência de treinamento para novos operadores</li><li>Objetivo: sair daqui quando houver substituto fixo</li></ul></div><span class="badge badge-ok">Ativo</span></div>
-    <div class="role-card"><div><div class="role-name">Janete Felix — Titular terça e quinta</div><div class="role-person">Operadora</div><ul class="role-tasks"><li>Holyrics — operação da projeção</li><li>Preparar banco de letras antes do culto</li><li>Sincronizar com músicos e pregador</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Daniel Pires — Coordenação e suporte</div><div class="role-person">Coordenador + referência técnica</div><ul class="role-tasks"><li>Holyrics — domínio completo</li><li>Referência de treinamento para novos operadores</li><li>Suporte aos titulares e reservas quando necessário</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Janete Felix — Titular terça e quinta</div><div class="role-person">Operadora + design em desenvolvimento</div><ul class="role-tasks"><li>Holyrics — operação da projeção</li><li>Interesse em design iniciante</li><li>Arte de teste solicitada — aguardando resultado</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Luiz André — Titular domingo</div><div class="role-person partial">Operador + design remoto reserva</div><ul class="role-tasks"><li>Holyrics · Photoshop · fundamentos de design</li><li>No design atua como reserva, melhor com templates prontos</li><li>Status parcial</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">Aline Pinheiro — Projeção</div><div class="role-person">Operadora em treinamento</div><ul class="role-tasks"><li>Holyrics aprendendo · fotografia básica</li><li>Saiu da fotografia por preferência própria</li><li>Mudança abre lacuna de fotógrafo</li></ul></div><span class="badge badge-ok">Ativo</span></div>
     <div class="role-card"><div><div class="role-name">Francis Pinheiro — Eventual</div><div class="role-person partial">Reserva geral</div><ul class="role-tasks"><li>Cobre qualquer culto em emergência</li><li>Não escalar como titular — apenas reserva</li></ul></div><span class="badge badge-partial">Eventual</span></div>
-    <div class="role-card"><div><div class="role-name">A recrutar — 3 operadores</div><div class="role-person gap">Vagas em aberto</div><ul class="role-tasks"><li>1 fixo para domingo — liberar Daniel da operação</li><li>1 reserva terça/quinta — cobrir Janete</li><li>1 reserva geral — eventos e imprevistos</li><li>Holyrics é simples — treinamento em 2 cultos acompanhados</li></ul></div><span class="badge badge-gap">3 Vagas</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar — reservas de projeção</div><div class="role-person gap">Vagas em aberto</div><ul class="role-tasks"><li>1 reserva terça/quinta — cobrir Janete</li><li>1 reserva geral — eventos e imprevistos</li><li>Holyrics é simples — treinamento em 2 cultos acompanhados</li></ul></div><span class="badge badge-gap">2 Vagas</span></div>
   </div>
   <div class="subtitle">Escala de revezamento</div>
   <div class="scale-grid">
-    <div class="scale-card"><div class="scale-day">Terça-feira</div><div class="scale-role">Titular</div><div class="scale-person">Janete Felix</div><div class="scale-role">Reserva</div><div class="scale-person gap">A recrutar</div></div>
-    <div class="scale-card"><div class="scale-day">Quinta-feira</div><div class="scale-role">Titular</div><div class="scale-person">Janete Felix</div><div class="scale-role">Reserva</div><div class="scale-person gap">A recrutar</div></div>
-    <div class="scale-card"><div class="scale-day">Domingo</div><div class="scale-role">Titular</div><div class="scale-person">Daniel Pires</div><div class="scale-role">Fixo (recrutar)</div><div class="scale-person gap">A recrutar — prioridade</div><div class="scale-role">Reserva</div><div class="scale-person">Francis Pinheiro (eventual)</div></div>
+    <div class="scale-card"><div class="scale-day">Terça-feira</div><div class="scale-role">Titular</div><div class="scale-person">Janete Felix</div><div class="scale-role">Reserva</div><div class="scale-person">Aline Pinheiro (aprendendo)</div></div>
+    <div class="scale-card"><div class="scale-day">Quinta-feira</div><div class="scale-role">Titular</div><div class="scale-person">Janete Felix</div><div class="scale-role">Reserva</div><div class="scale-person">Aline Pinheiro (aprendendo)</div></div>
+    <div class="scale-card"><div class="scale-day">Domingo</div><div class="scale-role">Titular</div><div class="scale-person">Luiz André</div><div class="scale-role">Apoio técnico</div><div class="scale-person">Daniel Pires</div><div class="scale-role">Reserva</div><div class="scale-person">Francis Pinheiro (eventual)</div></div>
   </div>
   <div class="card">
     <div class="card-title">Fluxo — Projeção</div>
@@ -171,8 +205,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
   <div class="section-title">Fotografia</div>
   <div class="section-desc">Registro fotográfico dos cultos, eventos e momentos da igreja</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">Aline Pinheiro — Titular</div><div class="role-person partial">Fotógrafa</div><ul class="role-tasks"><li>Fotografar cultos e eventos</li><li>Entregar fotos tratadas em até 48h</li><li>Manter banco de imagens organizado</li></ul></div><span class="badge badge-partial">Parcial</span></div>
-    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Fotógrafo de revezamento</div><ul class="role-tasks"><li>Alternar com Aline para não sobrecarregar</li><li>Cobertura em eventos simultâneos</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar — titular</div><div class="role-person gap">Fotógrafo</div><ul class="role-tasks"><li>Aline migrou para projeção por preferência própria</li><li>Fotografar cultos e eventos</li><li>Entregar fotos tratadas em até 48h</li></ul></div><span class="badge badge-gap">Vaga Crítica</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar — revezamento</div><div class="role-person gap">Fotógrafo de apoio</div><ul class="role-tasks"><li>Cobertura em eventos simultâneos</li><li>Manter banco de imagens organizado</li></ul></div><span class="badge badge-gap">Vaga</span></div>
   </div>
   <div class="card">
     <div class="card-title">Fluxo — Fotografia</div>
@@ -207,27 +241,28 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
 
   <div class="subtitle">Cinegrafistas — Vertical (rotina semanal — prioridade)</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Cinegrafista vertical + Editora</div><ul class="role-tasks"><li>Grava vertical e horizontal — a função exata será definida na conversa</li><li>Edita vídeo — vertical e horizontal</li><li>Pessoa mais completa da equipe de vídeo</li></ul></div><span class="badge badge-check">Confirmar</span></div>
-    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person gap">Cinegrafista vertical · Stories</div><ul class="role-tasks"><li>Grava vídeo vertical e stories em tempo real</li><li>Afastada — retorno indefinido</li><li>Quando retornar: cinegrafista vertical + stories ao vivo</li></ul></div><span class="badge badge-away">Afastada</span></div>
-    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista vertical — titular</div><ul class="role-tasks"><li>Filmar momentos do culto em formato 9:16</li><li>Capturar trechos de louvor, pregação e bastidores para Reels</li><li>Celular com boa câmera</li></ul></div><span class="badge badge-gap">Vaga</span></div>
-    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista vertical — revezamento</div><ul class="role-tasks"><li>Mesmo fluxo do titular</li><li>Cobre quando o titular não pode</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person">Cinegrafista vertical/horizontal + Editora</div><ul class="role-tasks"><li>Grava vertical e horizontal</li><li>Edita vídeo nos dois formatos</li><li>Pessoa mais versátil da equipe de vídeo</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person">Cinegrafista vertical · Stories</div><ul class="role-tasks"><li>Grava vídeo vertical com versatilidade</li><li>Stories em tempo real</li><li>Não edita — só captura</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Maria Eduarda</div><div class="role-person">Gravação + edição</div><ul class="role-tasks"><li>CapCut Pro — gravação e edição</li><li>Foco nos adolescentes e eventos das crianças</li><li>Nível a avaliar</li></ul></div><span class="badge badge-ok">Ativo — adolescente</span></div>
+    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista vertical — revezamento</div><ul class="role-tasks"><li>Cobrir ausências e eventos simultâneos</li><li>Celular com boa câmera</li></ul></div><span class="badge badge-gap">Vaga</span></div>
   </div>
 
   <div class="subtitle">Stories em tempo real</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Responsável por stories — titular</div><ul class="role-tasks"><li>Publicar stories durante cultos e eventos em tempo real</li><li>Criar stories informativos fora do culto (avisos, lembretes)</li><li>Coordenar com cinegrafista vertical para receber material</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Samara Alves</div><div class="role-person">Stories em tempo real</div><ul class="role-tasks"><li>Publicar ou capturar stories durante cultos e eventos em tempo real</li><li>Atua junto da gravação vertical</li><li>Não edita — só captura</li></ul></div><span class="badge badge-ok">Ativo</span></div>
     <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Responsável por stories — revezamento</div><ul class="role-tasks"><li>Mesmo fluxo do titular</li><li>Cobre quando o titular não pode</li></ul></div><span class="badge badge-gap">Vaga</span></div>
   </div>
 
   <div class="subtitle">Editores de vídeo</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Editora — a confirmar</div><ul class="role-tasks"><li>Editar Reels e cortes verticais para redes</li><li>Editar vídeos completos quando houver gravação de evento</li><li>Legendas, trilha e identidade visual</li></ul></div><span class="badge badge-check">Confirmar</span></div>
-    <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Editor — revezamento</div><ul class="role-tasks"><li>Revezamento com Emanuelly</li><li>Edição das demandas dos conjuntos</li></ul></div><span class="badge badge-gap">Vaga</span></div>
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person">Editora</div><ul class="role-tasks"><li>Editar Reels e cortes verticais para redes</li><li>Editar vídeos completos quando houver gravação de evento</li><li>Legendas, trilha e identidade visual</li></ul></div><span class="badge badge-ok">Ativo</span></div>
+    <div class="role-card"><div><div class="role-name">Rafael</div><div class="role-person">Editor de vídeo</div><ul class="role-tasks"><li>CapCut Pro</li><li>Só edita — não grava</li><li>Disponível para adolescentes e eventos das crianças; nível a avaliar</li></ul></div><span class="badge badge-ok">Ativo — adolescente</span></div>
+    <div class="role-card"><div><div class="role-name">Maria Eduarda</div><div class="role-person">Editora + gravação</div><ul class="role-tasks"><li>CapCut Pro — gravação e edição</li><li>Foco nos adolescentes e eventos das crianças</li><li>Nível a avaliar</li></ul></div><span class="badge badge-ok">Ativo — adolescente</span></div>
   </div>
 
   <div class="subtitle">Cinegrafista Horizontal — apenas eventos</div>
   <div class="role-grid">
-    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person potential">Quando disponível em eventos</div><ul class="role-tasks"><li>Capaz de gravar horizontal quando necessário</li><li>Não é função de rotina — só eventos especiais</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">Emanuelly Oliveira</div><div class="role-person">Quando disponível em eventos</div><ul class="role-tasks"><li>Capaz de gravar horizontal quando necessário</li><li>Não é função de rotina — só eventos especiais</li></ul></div><span class="badge badge-ok">Ativo</span></div>
     <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Cinegrafista horizontal — eventos</div><ul class="role-tasks"><li>Exclusivo para eventos especiais</li><li>Não entra na escala semanal</li></ul></div><span class="badge badge-gap">Vaga</span></div>
   </div>
 
@@ -261,11 +296,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
   </div>
 
   <div class="subtitle" style="margin-top:24px">Design da Semana — remoto, criativo</div>
-  <div class="principle">Flyers, posts, cards e conteúdo dos conjuntos. Trabalho remoto, com prazo. Luiz André e Rayssa trabalham melhor com template pronto — não com briefing aberto.</div>
+  <div class="principle">Flyers, posts, cards e conteúdo dos conjuntos. Trabalho remoto, com prazo. Luiz André trabalha melhor com template pronto — não com briefing aberto. Rayssa está fora do planejamento atual.</div>
   <div class="role-grid">
     <div class="role-card"><div><div class="role-name">Maysa Hellen</div><div class="role-person partial">Designer titular — remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos sólidos</li><li>Flyers, posts e artes mais complexas</li><li>Trabalho remoto — sem presença no culto</li></ul></div><span class="badge badge-partial">Limitada</span></div>
-    <div class="role-card"><div><div class="role-name">Luiz André</div><div class="role-person partial">Designer — remoto</div><ul class="role-tasks"><li>Photoshop · fundamentos — pouca prática criativa</li><li>Melhor com templates prontos e demandas definidas</li><li>Não sobrecarregar com criação do zero</li></ul></div><span class="badge badge-partial">Parcial</span></div>
-    <div class="role-card"><div><div class="role-name">Rayssa Vitória</div><div class="role-person potential">Designer — remoto</div><ul class="role-tasks"><li>Canva · noção de fundamentos</li><li>Melhor com templates prontos — limitação criativa</li><li>Ideal para demandas simples e repetitivas dos conjuntos</li></ul></div><span class="badge badge-check">Confirmar</span></div>
+    <div class="role-card"><div><div class="role-name">Luiz André</div><div class="role-person partial">Designer remoto — reserva</div><ul class="role-tasks"><li>Photoshop · fundamentos de design</li><li>Melhor com templates prontos e demandas definidas</li><li>Titular da projeção no domingo; no design atua como reserva</li></ul></div><span class="badge badge-partial">Parcial</span></div>
+    <div class="role-card"><div><div class="role-name">Janete Felix</div><div class="role-person potential">Design em desenvolvimento</div><ul class="role-tasks"><li>Interesse em design iniciante</li><li>Arte de teste solicitada — aguardando resultado</li><li>Função principal segue na projeção terça e quinta</li></ul></div><span class="badge badge-ok">Ativo</span></div>
     <div class="role-card"><div><div class="role-name">A recrutar</div><div class="role-person gap">Designer — demandas dos conjuntos</div><ul class="role-tasks"><li>Para quando a demanda crescer com os novos responsáveis de conjunto</li></ul></div><span class="badge badge-gap">Vaga</span></div>
   </div>
 
@@ -273,7 +308,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
     <div class="card-title">Fluxo — Design da Semana</div>
     <div class="flow-section"><div class="flow-label antes">Demanda</div><div class="flow-steps">
       <div class="flow-step"><div class="flow-num antes">1</div><div><div class="flow-text">Daniel ou responsável do conjunto envia briefing: o que é, data, texto, referência visual</div></div></div>
-      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Para Luiz e Rayssa: sempre enviar template de base — não pedir criação do zero</div></div></div>
+      <div class="flow-step"><div class="flow-num antes">2</div><div><div class="flow-text">Para Luiz e perfis em desenvolvimento: sempre enviar template de base — não pedir criação do zero</div></div></div>
       <div class="flow-step"><div class="flow-num antes">3</div><div><div class="flow-text">Designer confirma prazo e aceita a demanda</div></div></div>
     </div></div>
     <div class="flow-section"><div class="flow-label durante">Criação</div><div class="flow-steps">
@@ -347,14 +382,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
     <thead><tr><th>Função</th><th>Situação</th><th>Prioridade</th><th>Motivo</th></tr></thead>
     <tbody>
       <tr><td><strong>Gestor de Redes</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Ninguém faz isso hoje. Tudo com Daniel.</td></tr>
-      <tr><td><strong>Operador de Projeção</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 2 de 5</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Fácil de treinar. 3 vagas — prioridade imediata.</td></tr>
-      <tr><td><strong>Cinegrafista Vertical</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Prioridade da equipe de vídeo na rotina semanal.</td></tr>
-      <tr><td><strong>Responsável por Stories</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Ninguém publica stories ao vivo hoje.</td></tr>
+      <tr><td><strong>Operador de Projeção</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 3 de 5</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Janete, Luiz e Aline cobrem a base. Faltam reservas para revezamento.</td></tr>
+      <tr><td><strong>Fotógrafo</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Aline migrou para projeção — lacuna aberta</td></tr>
+      <tr><td><strong>Cinegrafista Vertical</strong></td><td><span style="color:var(--green);font-weight:700">Tem 3 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Samara, Emanuelly e Maria Eduarda cobrem a base; níveis e revezamento ainda precisam amadurecer.</td></tr>
+      <tr><td><strong>Responsável por Stories</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 1 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Samara cobre stories em tempo real. Falta reserva.</td></tr>
       <tr><td><strong>Responsáveis por Conjunto</strong></td><td><span style="color:var(--red);font-weight:700">Falta 5 de 5</span></td><td><span class="priority-high">Alta</span></td><td style="color:var(--muted)">Daniel vira ponto único de todos os conjuntos.</td></tr>
-      <tr><td><strong>Editor de Vídeo</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 1 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Confirmar Emanuelly. Falta par de revezamento.</td></tr>
-      <tr><td><strong>Fotógrafo</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 1 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Aline Pinheiro precisa de parceiro para revezar.</td></tr>
+      <tr><td><strong>Editor de Vídeo</strong></td><td><span style="color:var(--green);font-weight:700">Tem 3 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Emanuelly, Rafael e Maria Eduarda. Nível dos adolescentes a avaliar.</td></tr>
       <tr><td><strong>Operador de Live</strong></td><td><span style="color:var(--red);font-weight:700">Falta 2 de 2</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Transmissão sem responsável dedicado.</td></tr>
-      <tr><td><strong>Designer — semana</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 2 de 3</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Confirmar Rayssa. Maysa limitada pela gravidez.</td></tr>
+      <tr><td><strong>Designer — semana</strong></td><td><span style="color:var(--amber);font-weight:700">Tem 2 de 3</span></td><td><span class="priority-med">Média</span></td><td style="color:var(--muted)">Maysa limitada pela gravidez. Luiz atua como reserva; Janete em teste. Rayssa fora do planejamento atual.</td></tr>
       <tr><td><strong>Designer — culto</strong></td><td><span style="color:var(--amber);font-weight:700">Daniel cobre</span></td><td><span class="priority-med">Sem urgência</span></td><td style="color:var(--muted)">Daniel já faz. Recrutar quando aparecer a pessoa certa.</td></tr>
       <tr><td><strong>Cinegrafista Horizontal</strong></td><td><span style="color:var(--amber);font-weight:700">Eventos apenas</span></td><td><span class="priority-med">Baixa</span></td><td style="color:var(--muted)">Emanuelly cobre quando disponível. Não é rotina.</td></tr>
     </tbody>
@@ -418,10 +453,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
     <thead><tr><th>Culto</th><th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th></tr></thead>
     <tbody>
       <tr><td><strong>Terça</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Janete Felix</td><td>_____________</td><td>Janete Felix</td><td>_____________</td></tr>
-      <tr><td><strong>Terça</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Terça</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td>Aline Pinheiro</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Aline Pinheiro</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
       <tr><td><strong>Quinta</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Janete Felix</td><td>_____________</td><td>Janete Felix</td><td>_____________</td></tr>
-      <tr><td><strong>Quinta</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
-      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Daniel Pires</td><td>_____________</td><td>Daniel Pires</td><td>_____________</td></tr>
+      <tr><td><strong>Quinta</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td>Aline Pinheiro</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Aline Pinheiro</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular</span></td><td>Luiz André</td><td>_____________</td><td>Luiz André</td><td>_____________</td></tr>
       <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Reserva</span></td><td>Francis Pinheiro</td><td>Francis Pinheiro</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
     </tbody>
   </table>
@@ -432,7 +467,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
   <table class="gap-table">
     <thead><tr><th>Culto</th><th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th></tr></thead>
     <tbody>
-      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular A</span></td><td>Aline Pinheiro</td><td>_____________</td><td>Aline Pinheiro</td><td>_____________</td></tr>
+      <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular A</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
       <tr><td><strong>Domingo</strong><br><span style="color:var(--muted);font-size:12px">Titular B</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
       <tr><td><strong>Terça / Quinta</strong><br><span style="color:var(--muted);font-size:12px">Conforme demanda</span></td><td colspan="4" style="color:var(--muted);font-style:italic">Escalar apenas quando houver evento especial ou demanda específica</td></tr>
     </tbody>
@@ -444,9 +479,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
   <table class="gap-table">
     <thead><tr><th>Função</th><th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th></tr></thead>
     <tbody>
-      <tr><td><strong>Cinegrafista Vertical</strong><br><span style="color:var(--muted);font-size:12px">Todos os cultos</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
-      <tr><td><strong>Stories ao vivo</strong><br><span style="color:var(--muted);font-size:12px">Todos os cultos</span></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
-      <tr><td><strong>Edição — Reels</strong><br><span style="color:var(--muted);font-size:12px">Pós-culto, remoto</span></td><td>Emanuelly</td><td>_____________</td><td>Emanuelly</td><td>_____________</td></tr>
+      <tr><td><strong>Cinegrafista Vertical</strong><br><span style="color:var(--muted);font-size:12px">Todos os cultos</span></td><td>Samara Alves</td><td>Emanuelly</td><td>Maria Eduarda</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Stories ao vivo</strong><br><span style="color:var(--muted);font-size:12px">Todos os cultos</span></td><td>Samara Alves</td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Samara Alves</td><td style="color:var(--muted);font-style:italic">A recrutar</td></tr>
+      <tr><td><strong>Edição — Reels</strong><br><span style="color:var(--muted);font-size:12px">Pós-culto, remoto</span></td><td>Emanuelly</td><td>Rafael</td><td>Emanuelly</td><td>Maria Eduarda</td></tr>
     </tbody>
   </table>
   </div>
@@ -458,17 +493,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
     <thead><tr><th>Semana</th><th>Titular</th><th>Apoio</th><th>Obs</th></tr></thead>
     <tbody>
       <tr><td><strong>Semana 1</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Luiz: sempre com template — não briefing aberto</td></tr>
-      <tr><td><strong>Semana 2</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Confirmar Rayssa antes de escalar</td></tr>
+      <tr><td><strong>Semana 2</strong></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Rayssa fora do planejamento atual</td></tr>
       <tr><td><strong>Semana 3</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
-      <tr><td><strong>Semana 4</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
+      <tr><td><strong>Semana 4</strong></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Rayssa fora do planejamento atual</td></tr>
     </tbody>
   </table>
   </div>
     <tbody>
       <tr><td><strong>Semana 1</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Maysa titular quando disponível</td></tr>
-      <tr><td><strong>Semana 2</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Confirmar Rayssa antes de escalar</td></tr>
+      <tr><td><strong>Semana 2</strong></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Rayssa fora do planejamento atual</td></tr>
       <tr><td><strong>Semana 3</strong></td><td>Maysa Hellen</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
-      <tr><td><strong>Semana 4</strong></td><td>Rayssa Vitória</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px"></td></tr>
+      <tr><td><strong>Semana 4</strong></td><td style="color:var(--muted);font-style:italic">A recrutar</td><td>Luiz André</td><td style="color:var(--muted);font-size:13px">Rayssa fora do planejamento atual</td></tr>
     </tbody>
   </table>
   </div>
